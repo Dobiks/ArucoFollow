@@ -1,5 +1,3 @@
-from typing import List
-from xmlrpc.client import Boolean
 from geometry_msgs.msg import Twist, Vector3, Transform, Quaternion
 import math
 import rtde_control
@@ -141,7 +139,7 @@ class FollowingNode:
             translation.y = float(yData.strip()[3:])
             translation.z = float(zData.strip()[3:])
         except Exception as e:
-            pass#print("aruco not detected")
+            print("aruco not detected")
         return translation
 
     def getArucoRotation(self, data: FiducialTransformArray) -> Quaternion:
@@ -158,7 +156,7 @@ class FollowingNode:
             rotation.z = float(zData.strip()[3:])
             rotation.w = float(wData.strip()[3:])
         except Exception as e:
-           pass# print("aruco not detected")
+           print("aruco not detected")
         return rotation   
 
     def updateArmSpeed(self) -> None:
